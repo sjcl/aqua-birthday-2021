@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <p v-if="loading">
+    Now Loading...
+  </p>
+  <div v-else>
     <img src="/original.jpg" :class="original ? 'image trans show' : 'image trans hide'" />
     <image-zoom
       zoom="/mosaic.png"
@@ -30,12 +33,14 @@ export default {
   },
   data() {
     return {
+      loading: true,
       original: true
     };
   },
   mounted() {
     const img = new Image();
     img.onload = () => {
+      this.loading = false;
       setTimeout(() => {
         this.original = false;
       }, 2000);
@@ -46,16 +51,12 @@ export default {
 </script>
 
 <style>
-div {
-  font-size: 0;
-  line-height: 0;
-}
-
 .image {
   height: 100vh;
 }
 
 .trans {
+  display: block;
   position: absolute;
 }
 
