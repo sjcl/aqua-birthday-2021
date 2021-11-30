@@ -15,13 +15,13 @@
         @click="showOriginal = !showOriginal"
         color="pink lighten-1"
         class="mx-2 white--text"
-        x-large
+        large
       >Switch / 切り替え</v-btn>
       <v-btn
         @click="showMessages = true"
         color="pink lighten-1"
         class="mx-1 white--text"
-        x-large
+        large
       >Message list</v-btn>
     </div>
 
@@ -30,8 +30,8 @@
       <v-btn
         @click="showMessages = false"
         color="pink lighten-1"
-        class="ma-1 white--text"
-        x-large
+        class="ma-2 white--text"
+        large
       >Close</v-btn>
     </v-overlay>
   </div>
@@ -87,7 +87,7 @@ export default {
 .buttons {
   position: fixed;
   top: calc(100vh - 70px);
-  left: max(calc(100vw - 420px), 0px);
+  left: max(calc(100vw - 370px), 0px);
   /* right: 20px;
   bottom: 20px; */
 }
