@@ -1,6 +1,6 @@
 <template>
 <div>
-  <img src="/sample.jpg" :class="original ? 'image trans show' : 'image trans hide'" />
+  <img src="/original.jpg" :class="original ? 'image trans show' : 'image trans hide'" />
   <image-zoom
     zoom="/mosaic.png"
     regular="/thumb.jpg"
