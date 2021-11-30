@@ -87,7 +87,7 @@ export default {
 .buttons {
   position: fixed;
   top: calc(100vh - 70px);
-  left: max(100vw - 370px, 0px);
+  left: max(100vw - 370px, 1px);
   /* right: 20px;
   bottom: 20px; */
 }
