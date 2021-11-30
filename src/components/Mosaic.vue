@@ -9,7 +9,15 @@
       img-class="image"
       :class="original ? 'trans hide' : 'trans show'"
     ></image-zoom>
-    <v-btn @click="original = !original" color="pink lighten-1" class="white--text" fixed right bottom x-large>Switch / 切り替え</v-btn>
+    <v-btn
+      @click="original = !original"
+      color="pink lighten-1"
+      class="white--text"
+      fixed
+      right
+      bottom
+      x-large
+    >Switch / 切り替え</v-btn>
   </div>
 </template>
 
@@ -27,14 +35,12 @@ export default {
   },
   mounted() {
     const img = new Image();
-    // img.onload = () => {
-    //   console.log("img loaded");
-    // };
+    img.onload = () => {
+      setTimeout(() => {
+        this.original = false;
+      }, 2000);
+    };
     img.src = "/mosaic.png";
-
-    setTimeout(() => {
-      this.original = false;
-    }, 2000);
   }
 };
 </script>
