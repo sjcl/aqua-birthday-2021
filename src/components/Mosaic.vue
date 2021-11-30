@@ -14,7 +14,7 @@
       <v-btn
         @click="showOriginal = !showOriginal"
         color="pink lighten-1"
-        class="mx-2 white--text"
+        class="mx-1 white--text"
         large
       >Switch<br>切り替え</v-btn>
       <v-btn
