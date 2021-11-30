@@ -28,7 +28,7 @@
         color="pink lighten-1"
         class="mx-1 white--text"
         large
-      >Credits<br>作者</v-btn>
+      >Credits<br>クレジット</v-btn>
     </div>
 
     <v-overlay :value="showMessages" opacity=".6" class="text-center">
