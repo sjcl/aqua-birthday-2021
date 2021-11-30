@@ -1,9 +1,9 @@
 <template>
 <div>
-  <img :src="require('@/assets/sample.jpg')" :class="original ? 'image trans show' : 'image trans hide'" />
+  <img src="/sample.jpg" :class="original ? 'image trans show' : 'image trans hide'" />
   <image-zoom
-    :zoom="require('@/assets/mosaic.png')"
-    :regular="require('@/assets/thumb.jpg')"
+    zoom="/mosaic.png"
+    regular="/thumb.jpg"
     :zoom-amount="7"
     click-zoom
     img-class="image"
@@ -29,7 +29,7 @@ export default {
     img.onload = () => {
       console.log("img loaded");
     };
-    img.src = require("@/assets/mosaic.png");
+    img.src = "/mosaic.png";
 
     setInterval(() => {
       this.original = false
