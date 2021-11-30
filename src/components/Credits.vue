@@ -9,7 +9,7 @@
       <div class="text-center text-h5 my-1">Website</div>
       <span>sjcl</span>
       <div class="text-center text-h5 my-1">Main Art</div>
-      <span>Darjeeling @xdarjeelingxtea</span>
+      <span>Darjeeling <a href="https://twitter.com/xdarjeelingxtea" target="_blank" class="white--text">@xdarjeelingxtea</a></span>
       <div class="text-center text-h5 my-1">Others</div>
       <span>Seiso SIlver, Warthog</span>
   </v-container>
