@@ -25,7 +25,7 @@
       >Message list</v-btn>
     </div>
 
-    <v-overlay :value="showMessages">
+    <v-overlay :value="showMessages" class="text-center">
       <Messages />
       <v-btn
         @click="showMessages = false"
