@@ -33,7 +33,7 @@ export default {
 
     setInterval(() => {
       this.original = false
-    }, 1000)
+    }, 2000)
   }
 };
 </script>
@@ -54,11 +54,11 @@ div {
 
 .show {
   opacity: 1;
-  transition: opacity 1.5s;
+  transition: opacity 2s;
 }
 
 .hide {
   opacity: 0;
-  transition: opacity 1.5s;
+  transition: opacity 2s;
 }
 </style>
