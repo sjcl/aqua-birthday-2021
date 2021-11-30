@@ -16,13 +16,13 @@
         color="pink lighten-1"
         class="mx-2 white--text"
         large
-      >Switch / 切り替え</v-btn>
+      >Switch<br>切り替え</v-btn>
       <v-btn
         @click="showMessages = true"
         color="pink lighten-1"
         class="mx-1 white--text"
         large
-      >Message list</v-btn>
+      >Message/arts<br>メッセージ/アート</v-btn>
     </div>
 
     <v-overlay :value="showMessages" class="text-center">
