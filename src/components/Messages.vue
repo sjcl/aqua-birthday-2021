@@ -21,7 +21,7 @@
 export default {
   data() {
     return {
-      messages: [...Array(42)].map((_, i) => "Message " + (i + 1)),
+      messages: [...Array(88)].map((_, i) => "Message " + (i + 1)),
       images: [...Array(7)].map((_, i) => "Image " + (i + 2)),
     };
   }
