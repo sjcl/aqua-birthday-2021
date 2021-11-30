@@ -10,29 +10,42 @@
       img-class="image"
       :class="showOriginal ? 'trans hide' : 'trans show'"
     ></image-zoom>
-    <v-btn
-      @click="showOriginal = !showOriginal"
-      color="pink lighten-1"
-      class="white--text"
-      fixed
-      right
-      bottom
-      x-large
-    >Switch / 切り替え</v-btn>
+    <div class="buttons">
+      <v-btn
+        @click="showOriginal = !showOriginal"
+        color="pink lighten-1"
+        class="ma-2 white--text"
+        x-large
+      >Switch / 切り替え</v-btn>
+      <v-btn
+        @click="showMessages = true"
+        color="pink lighten-1"
+        class="ma-2 white--text"
+        x-large
+      >メッセージ一覧</v-btn>
+    </div>
+
+    <v-overlay :value="showMessages">
+      <Messages />
+      <v-btn @click="showMessages = false" color="pink lighten-1" class="ma-2 white--text" x-large>Close</v-btn>
+    </v-overlay>
   </div>
 </template>
 
 <script>
 import imageZoom from "vue-image-zoomer";
+import Messages from "@/components/Messages";
 
 export default {
   components: {
-    imageZoom
+    imageZoom,
+    Messages
   },
   data() {
     return {
       loading: true,
-      showOriginal: true
+      showOriginal: true,
+      showMessages: false
     };
   },
   mounted() {
@@ -64,5 +77,11 @@ export default {
 .hide {
   opacity: 0;
   transition: opacity 2s;
+}
+
+.buttons {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
 }
 </style>
