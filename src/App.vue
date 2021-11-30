@@ -19,3 +19,13 @@ export default {
   })
 };
 </script>
+
+<style>
+body {
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+</style>
