@@ -69,11 +69,10 @@ export default {
       showOriginal: true,
       showMessages: false,
       showCredits: false,
-      isMobile: window.screen.width < window.screen.height
+      isMobile: window.innerWidth < window.innerHeight
     };
   },
   mounted() {
-    console.log(this.isMobile);
     window.onload = () => {
       this.loading = false;
       setTimeout(() => {
