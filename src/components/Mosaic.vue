@@ -23,6 +23,12 @@
         class="mx-1 white--text"
         large
       >Message/arts<br>メッセージ/アート</v-btn>
+      <v-btn
+        @click="showCredits = true"
+        color="pink lighten-1"
+        class="mx-1 white--text"
+        large
+      >Credits<br>作者</v-btn>
     </div>
 
     <v-overlay :value="showMessages" class="text-center">
@@ -34,23 +40,36 @@
         large
       >Close</v-btn>
     </v-overlay>
+
+    <v-overlay :value="showCredits" class="text-center">
+      <Credits />
+      <v-btn
+        @click="showCredits = false"
+        color="pink lighten-1"
+        class="ma-2 white--text"
+        large
+      >Close</v-btn>
+    </v-overlay>
   </div>
 </template>
 
 <script>
 import imageZoom from "vue-image-zoomer";
 import Messages from "@/components/Messages";
+import Credits from "@/components/Credits";
 
 export default {
   components: {
     imageZoom,
-    Messages
+    Messages,
+    Credits
   },
   data() {
     return {
       loading: true,
       showOriginal: true,
-      showMessages: false
+      showMessages: false,
+      showCredits: false
     };
   },
   mounted() {
@@ -87,7 +106,7 @@ export default {
 .buttons {
   position: fixed;
   top: calc(100vh - 70px);
-  left: max(100vw - 370px, 1px);
+  left: max(100vw - 425px, 1px);
   /* right: 20px;
   bottom: 20px; */
 }
