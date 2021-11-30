@@ -1,19 +1,17 @@
 <template>
-  <p v-if="loading">
-    Now Loading...
-  </p>
+  <p v-if="loading">Now Loading...</p>
   <div v-else>
-    <img src="/original.jpg" :class="original ? 'image trans show' : 'image trans hide'" />
+    <img src="/original.jpg" :class="showOriginal ? 'image trans show' : 'image trans hide'" />
     <image-zoom
       zoom="/mosaic.png"
       regular="/thumb.jpg"
       :zoom-amount="7"
       click-zoom
       img-class="image"
-      :class="original ? 'trans hide' : 'trans show'"
+      :class="showOriginal ? 'trans hide' : 'trans show'"
     ></image-zoom>
     <v-btn
-      @click="original = !original"
+      @click="showOriginal = !showOriginal"
       color="pink lighten-1"
       class="white--text"
       fixed
@@ -34,18 +32,16 @@ export default {
   data() {
     return {
       loading: true,
-      original: true
+      showOriginal: true
     };
   },
   mounted() {
-    const img = new Image();
-    img.onload = () => {
+    window.onload = () => {
       this.loading = false;
       setTimeout(() => {
-        this.original = false;
+        this.showOriginal = false;
       }, 2000);
     };
-    img.src = "/mosaic.png";
   }
 };
 </script>
