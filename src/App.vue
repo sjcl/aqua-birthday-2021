@@ -1,6 +1,6 @@
 <template>
   <v-app>
-      <Mosaic />
+    <Mosaic />
   </v-app>
 </template>
 
@@ -20,12 +20,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 body {
   scrollbar-width: none;
 }
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+#app {
+  background: url('/background.png');
+  background-size: cover;
 }
 </style>
