@@ -22,10 +22,10 @@ export default {
 
 <style scoped>
 body {
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
 }
 
-body::-webkit-scrollbar {
+body::-webkit-scrollbar:vertical {
   display: none;
 }
 
