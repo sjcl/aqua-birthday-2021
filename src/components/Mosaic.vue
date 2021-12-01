@@ -1,6 +1,6 @@
 <template>
   <p v-if="loading">Now Loading...</p>
-  <div v-else>
+  <div class="mosaic-wrapper" v-else>
     <img src="/original.jpg" :class="getOriginalImageClass()" />
     <image-zoom
       zoom="/mosaic.png"
@@ -10,6 +10,7 @@
       :img-class="getImageClass()"
       :class="showOriginal ? 'trans hide' : 'trans show'"
     ></image-zoom>
+
     <div class="buttons">
       <v-btn
         @click="showOriginal = !showOriginal"
@@ -69,7 +70,7 @@ export default {
       showOriginal: true,
       showMessages: false,
       showCredits: false,
-      isMobile: window.innerWidth < window.innerHeight
+      isMobile: window.innerWidth < window.innerHeight,
     };
   },
   mounted() {
@@ -78,8 +79,19 @@ export default {
       setTimeout(() => {
         this.showOriginal = false;
       }, 2000);
+
+      // document.getElementById("app").addEventListener("scroll", this.onScroll);
+      // document
+      //   .getElementById("app")
+      //   .addEventListener("touchmove", this.onScroll);
     };
   },
+  // destroyed() {
+  //   document.getElementById("app").removeEventListener("scroll", this.onScroll);
+  //   document
+  //     .getElementById("app")
+  //     .removeEventListener("touchmove", this.onScroll);
+  // },
   methods: {
     getImageClass() {
       if (this.isMobile) return "image-mobile";
@@ -93,19 +105,28 @@ export default {
         if (this.showOriginal) return "image trans show";
         return "image trans hide";
       }
-    }
+    },
+    // onScroll() {
+    //   console.log(document.getElementById("app").scrollLeft);
+    // }
   }
 };
 </script>
 
 <style>
+.mosaic-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: max(100vw, 3840px);
+}
+
 .image {
   width: 100vw;
-  
 }
 
 .image-mobile {
   height: 100vh;
+  width: calc(100vh * (16 / 9));
 }
 
 .trans {
@@ -121,6 +142,18 @@ export default {
 .hide {
   opacity: 0;
   transition: opacity 2s;
+}
+
+.buttons-wrapper {
+  max-width: 100vw;
+  position: fixed;
+  left: 20px;
+}
+
+.sticky {
+  position: fixed;
+  top: 100px;
+  left: 20px;
 }
 
 .buttons {

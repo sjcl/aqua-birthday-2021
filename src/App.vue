@@ -25,12 +25,13 @@ body {
   /* scrollbar-width: none; */
 }
 
-body::-webkit-scrollbar:vertical {
+/* body::-webkit-scrollbar:vertical {
   display: none;
 }
-
+ */
 #app {
   background: url('/background.png');
   background-size: cover;
+  overflow-x: scroll;
 }
 </style>
