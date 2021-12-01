@@ -20,17 +20,20 @@ export default {
 };
 </script>
 
-<style scoped>
-body {
-  /* scrollbar-width: none; */
+<style>
+html {
+overflow: hidden;
+}
+/* html {
+  scrollbar-width: none;
 }
 
-/* body::-webkit-scrollbar:vertical {
+html::-webkit-scrollbar:horizontal {
   display: none;
-}
- */
+} */
+
 #app {
-  background: url('/background.png');
+  background: url("/background.png");
   background-size: cover;
   overflow-x: scroll;
 }

@@ -95,6 +95,9 @@ export default {
     };
   },
   mounted() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+    document.documentElement.style.setProperty('--vw', `${window.innerWidth}px`);
+    
     window.onload = () => {
       this.loading = false;
       setTimeout(() => {
@@ -126,12 +129,19 @@ export default {
 </script>
 
 <style>
+.v-application--wrap {
+  min-height: 100vh !important;
+  min-height: var(--vh, 1vh) !important;
+}
+
 .image-w {
   width: 100vw;
+  width: var(--vw, 1vw);
 }
 
 .image-h {
   height: 100vh;
+  height: var(--vh, 1vh);
   /* width: calc(100vh * (16 / 9)); */
 }
 
