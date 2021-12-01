@@ -132,7 +132,7 @@ export default {
 
 .image-h {
   height: 100vh;
-  width: calc(100vh * (16 / 9));
+  /* width: calc(100vh * (16 / 9)); */
 }
 
 .trans {
