@@ -80,18 +80,9 @@ export default {
         this.showOriginal = false;
       }, 2000);
 
-      // document.getElementById("app").addEventListener("scroll", this.onScroll);
-      // document
-      //   .getElementById("app")
-      //   .addEventListener("touchmove", this.onScroll);
+      document.getElementById("app").onwheel = this.onWheel;
     };
   },
-  // destroyed() {
-  //   document.getElementById("app").removeEventListener("scroll", this.onScroll);
-  //   document
-  //     .getElementById("app")
-  //     .removeEventListener("touchmove", this.onScroll);
-  // },
   methods: {
     getImageClass() {
       if (this.isMobile) return "image-mobile";
@@ -106,9 +97,9 @@ export default {
         return "image trans hide";
       }
     },
-    // onScroll() {
-    //   console.log(document.getElementById("app").scrollLeft);
-    // }
+    onWheel(event) {
+      document.getElementById("app").scrollLeft += event.deltaY;
+    }
   }
 };
 </script>
