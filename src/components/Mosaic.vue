@@ -51,7 +51,7 @@
       </v-btn>
     </div>
 
-    <v-overlay :value="showMessages" opacity=".6" absolute class="text-center">
+    <v-overlay :value="showMessages" opacity=".6" class="text-center">
       <Messages />
       <v-btn
         @click="showMessages = false"
@@ -61,7 +61,7 @@
       >Close</v-btn>
     </v-overlay>
 
-    <v-overlay :value="showCredits" opacity=".6" absolute class="text-center">
+    <v-overlay :value="showCredits" opacity=".6" class="text-center">
       <Credits />
       <v-btn
         @click="showCredits = false"
