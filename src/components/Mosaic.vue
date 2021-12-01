@@ -105,6 +105,7 @@ export default {
     };
   },
   mounted() {
+    const app = document.getElementById("app");
     window.addEventListener("resize", this.onResize);
     this.onResize();
 
@@ -114,7 +115,14 @@ export default {
         this.showOriginal = false;
       }, 2000);
 
-      document.getElementById("app").onwheel = this.onWheel;
+      app.onwheel = this.onWheel;
+
+      if (this.isMobile) {
+        const scroll = setInterval(() => {
+          app.scrollLeft += 5;
+          if (app.scrollLeft >= 250) clearInterval(scroll);
+        }, 20);
+      }
     };
   },
   beforeDestroy() {
