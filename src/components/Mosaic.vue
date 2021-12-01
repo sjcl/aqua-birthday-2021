@@ -1,6 +1,6 @@
 <template>
   <p v-if="loading">Now Loading...</p>
-  <div class="mosaic-wrapper" v-else>
+  <div v-else>
     <img src="/original.jpg" :class="getOriginalImageClass()" />
     <image-zoom
       zoom="/mosaic.png"
@@ -11,7 +11,27 @@
       :class="showOriginal ? 'trans hide' : 'trans show'"
     ></image-zoom>
 
-    <div class="buttons">
+    <div v-if="isMobile" class="buttons-mobile">
+      <v-btn @click="showOriginal = !showOriginal" color="pink lighten-1" class="mx-1" fab>
+        <v-icon color="white">mdi-sync</v-icon>
+      </v-btn>
+      <v-menu offset-y offset-overflow tile>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn color="pink lighten-1" class="mx-1" fab>
+            <v-icon color="white" v-bind="attrs" v-on="on">mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-btn @click="showMessages = true" color="pink lighten-1" class="my-1 ml-auto white--text d-block" large>
+          Message/arts
+          <br />メッセージ/アート
+        </v-btn>
+        <v-btn @click="showCredits = true" color="pink lighten-1" class="my-1 ml-auto white--text d-block" large>
+          Credits
+          <br />クレジット
+        </v-btn>
+      </v-menu>
+    </div>
+    <div v-else class="buttons">
       <v-btn
         @click="showOriginal = !showOriginal"
         color="pink lighten-1"
@@ -70,7 +90,7 @@ export default {
       showOriginal: true,
       showMessages: false,
       showCredits: false,
-      isMobile: window.innerWidth < window.innerHeight,
+      isMobile: window.innerWidth < window.innerHeight
     };
   },
   mounted() {
@@ -105,12 +125,6 @@ export default {
 </script>
 
 <style>
-.mosaic-wrapper {
-  overflow-x: auto;
-  white-space: nowrap;
-  width: max(100vw, 3840px);
-}
-
 .image {
   width: 100vw;
 }
@@ -135,23 +149,21 @@ export default {
   transition: opacity 2s;
 }
 
-.buttons-wrapper {
-  max-width: 100vw;
-  position: fixed;
-  left: 20px;
-}
-
-.sticky {
-  position: fixed;
-  top: 100px;
-  left: 20px;
-}
-
 .buttons {
   position: fixed;
-  top: calc(100vh - 70px);
-  left: max(100vw - 425px, 1px);
-  /* right: 20px;
-  bottom: 20px; */
+  /* top: calc(100vh - 70px);
+  left: max(100vw - 425px, 1px); */
+  right: 20px;
+  bottom: 20px;
+}
+
+.buttons-mobile {
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+}
+
+.v-menu__content {
+  box-shadow: none !important;
 }
 </style>
