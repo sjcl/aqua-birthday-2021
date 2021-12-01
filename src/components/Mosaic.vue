@@ -147,7 +147,8 @@ export default {
       );
     },
     onWheel(event) {
-      document.getElementById("app").scrollLeft += event.deltaY;
+      if (!this.showMessages && !this.showCredits)
+        document.getElementById("app").scrollLeft += event.deltaY;
     }
   }
 };
