@@ -21,11 +21,21 @@
             <v-icon color="white" v-bind="attrs" v-on="on">mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
-        <v-btn @click="showMessages = true" color="pink lighten-1" class="my-1 ml-auto white--text d-block" large>
+        <v-btn
+          @click="showMessages = true"
+          color="pink lighten-1"
+          class="my-1 ml-auto white--text d-block"
+          large
+        >
           Message/arts
           <br />メッセージ/アート
         </v-btn>
-        <v-btn @click="showCredits = true" color="pink lighten-1" class="my-1 ml-auto white--text d-block" large>
+        <v-btn
+          @click="showCredits = true"
+          color="pink lighten-1"
+          class="my-1 ml-auto white--text d-block"
+          large
+        >
           Credits
           <br />クレジット
         </v-btn>
@@ -90,14 +100,14 @@ export default {
       showOriginal: true,
       showMessages: false,
       showCredits: false,
-      fillHeight: window.innerWidth / 16 < window.innerHeight / 9,
-      isMobile: window.innerWidth < 800
+      fillHeight: true,
+      isMobile: false
     };
   },
   mounted() {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
-    document.documentElement.style.setProperty('--vw', `${window.innerWidth}px`);
-    
+    window.addEventListener("resize", this.onResize);
+    this.onResize();
+
     window.onload = () => {
       this.loading = false;
       setTimeout(() => {
@@ -106,6 +116,9 @@ export default {
 
       document.getElementById("app").onwheel = this.onWheel;
     };
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
   },
   methods: {
     getImageClass() {
@@ -120,6 +133,18 @@ export default {
         if (this.showOriginal) return "image-w trans show";
         return "image-w trans hide";
       }
+    },
+    onResize() {
+      this.fillHeight = window.innerWidth / 16 < window.innerHeight / 9;
+      this.isMobile = window.innerWidth < 800;
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight}px`
+      );
+      document.documentElement.style.setProperty(
+        "--vw",
+        `${window.innerWidth}px`
+      );
     },
     onWheel(event) {
       document.getElementById("app").scrollLeft += event.deltaY;

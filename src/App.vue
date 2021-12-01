@@ -22,7 +22,7 @@ export default {
 
 <style>
 html {
-overflow: hidden;
+  overflow: hidden;
 }
 /* html {
   scrollbar-width: none;
