@@ -90,7 +90,8 @@ export default {
       showOriginal: true,
       showMessages: false,
       showCredits: false,
-      isMobile: window.innerWidth < window.innerHeight
+      fillHeight: window.innerWidth / 16 < window.innerHeight / 9,
+      isMobile: window.innerWidth < 800
     };
   },
   mounted() {
@@ -105,16 +106,16 @@ export default {
   },
   methods: {
     getImageClass() {
-      if (this.isMobile) return "image-mobile";
-      return "image";
+      if (this.fillHeight) return "image-h";
+      return "image-w";
     },
     getOriginalImageClass() {
-      if (this.isMobile) {
-        if (this.showOriginal) return "image-mobile trans show";
-        return "image-mobile trans hide";
+      if (this.fillHeight) {
+        if (this.showOriginal) return "image-h trans show";
+        return "image-h trans hide";
       } else {
-        if (this.showOriginal) return "image trans show";
-        return "image trans hide";
+        if (this.showOriginal) return "image-w trans show";
+        return "image-w trans hide";
       }
     },
     onWheel(event) {
@@ -125,11 +126,11 @@ export default {
 </script>
 
 <style>
-.image {
+.image-w {
   width: 100vw;
 }
 
-.image-mobile {
+.image-h {
   height: 100vh;
   width: calc(100vh * (16 / 9));
 }
