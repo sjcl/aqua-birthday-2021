@@ -4,7 +4,7 @@
     <div class="text-center text-h4 my-1">メッセージ</div>
     <v-row>
       <v-col v-for="msg in messages" :key="msg" cols="12" lg="3" md="6"  sm="12">
-        <v-img :src="'/messages/'+msg+'.jpg'" max-width="100vw" />
+        <v-img :src="'/messages/'+msg+'.webp'" max-width="100vw" />
       </v-col>
     </v-row>
     <div class="text-center text-h4 my-1">Arts</div>
