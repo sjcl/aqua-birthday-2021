@@ -3,7 +3,7 @@
     <div class="text-center text-h4 my-1">Messages</div>
     <div class="text-center text-h4 my-1">メッセージ</div>
     <v-row>
-      <v-col v-for="msg in messages" :key="msg" cols="12" lg="3" md="6"  sm="12">
+      <v-col v-for="msg in messages" :key="msg" cols="12" lg="3" md="6" sm="12">
         <v-img :src="'/messages/'+msg+'.webp'" max-width="100vw" />
       </v-col>
     </v-row>
@@ -11,7 +11,7 @@
     <div class="text-center text-h4 my-1">アート</div>
     <v-row>
       <v-col v-for="img in images" :key="img" cols="12" lg="3" md="6" sm="12">
-        <v-img :src="'/images/'+img+'.jpg'" max-width="100vw"/>
+        <v-img :src="'/images/'+img+'.jpg'" max-width="100vw" />
       </v-col>
     </v-row>
   </v-container>
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       messages: [...Array(87)].map((_, i) => "Message " + (i + 1)),
-      images: [...Array(7)].map((_, i) => "Image " + (i + 2)),
+      images: [...Array(7)].map((_, i) => "Image " + (i + 2))
     };
   }
 };
@@ -30,6 +30,6 @@ export default {
 
 <style>
 .overlay {
-  max-height: 90vh;
+  max-height: min(90vh, 100vh - 120px) !important;
 }
 </style>

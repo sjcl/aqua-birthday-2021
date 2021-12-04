@@ -18,6 +18,6 @@
 
 <style>
 .overlay {
-    max-height: 90vh;
+  max-height: min(90vh, 100vh - 120px) !important;
 }
 </style>
